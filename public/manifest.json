@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Free Recipes",
+  "name": "Find Free Meal and Cocktail Recipes Online",
   "icons": [
     {
       "src": "favicon.ico",
