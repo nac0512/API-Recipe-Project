@@ -7,8 +7,8 @@ function Home() {
         fetch(`${e.target.recipeType.value}api/json/v1/1/search.php?s=${e.target.searchTerm.value}`)
         .then(data => data.json())
         .then(data => {
-            console.log(data)
-        })
+            console.log(data);
+        });
     };
 
     return(
