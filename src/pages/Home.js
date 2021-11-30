@@ -9,6 +9,7 @@ function Home() {
         .then(data => {
             console.log(data);
         });
+        e.target.reset();
     };
 
     return(
