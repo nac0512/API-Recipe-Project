@@ -8,7 +8,7 @@ const Search = (props) => {
                 <label for="recipeType">Select the kind of recipe you want:</label>
                 <input type="radio" id="Food" name="recipeType" value="https://www.themealdb.com/"></input>
                 <label for="food">Food</label>
-                <input type="radio" id="Drinks" name="recipeType" value="https://www.thecocktaildb.com"></input>
+                <input type="radio" id="Drinks" name="recipeType" value="https://www.thecocktaildb.com/"></input>
                 <label for="Drinks">Drinks</label>
             </div>
             <div>
