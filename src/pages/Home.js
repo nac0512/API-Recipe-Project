@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Button from '../components/Button';
 import Drink from '../components/Drink';
 import Food from '../components/Food';
 import Search from '../components/Search'
@@ -24,6 +25,10 @@ function Home() {
         e.target.reset();
     };
 
+    const newSearch = () => {
+        setinfoReady(false);
+    };
+
     useEffect(() => {
         async function fetchAPI() {
             if(url !== '') {
@@ -41,13 +46,16 @@ function Home() {
             }
         }; 
         fetchAPI();
-    }, [url, searchTerm, api, info, infoReady, infoisFood])
+        seturl('');
+        setsearchTerm('');
+    }, [url, searchTerm, api, info, infoReady, infoisFood]);
 
     return(
         <div>
             <main>
                 {infoReady ? [
                     <h2>Recipes found for: {searchTerm}</h2>,
+                    <Button content="New Search" clickEvent={newSearch}/>, 
                     infoisFood ? 
                     info.map((recipe, index) => (
                         <Food data={recipe} key={index} />
@@ -55,7 +63,8 @@ function Home() {
                     :
                     info.map((recipe, index) => (
                         <Drink data={recipe} key={index} />
-                    )) ]
+                    )), 
+                    <Button content="New Search" clickEvent={newSearch}/> ]
                 : [
                     <h2>Search Free Recipes</h2>,
                     <Search findRecipe={findRecipe} /> 

@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from './Button';
 import Thumbnail from './Thumbnail';
 
 const Drink = ({data}) => {
@@ -28,7 +27,6 @@ const Drink = ({data}) => {
             </ul>
             <h4>Instructions</h4>
             <p>{data.strInstructions}</p>
-            <Button content="New Search"/>
         </article>
     );
 }
