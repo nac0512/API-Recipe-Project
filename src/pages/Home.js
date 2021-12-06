@@ -35,6 +35,7 @@ function Home() {
     const newSearch = () => {
         setinfoReady(false);
         setWarning('');
+        setinfoIsNull(false);
     };
 
     useEffect(() => {
@@ -58,7 +59,7 @@ function Home() {
         }; 
         fetchAPI();
         seturl('');
-    }, [url, searchTerm, api, info, infoReady, infoIsFood]);
+    }, [url, searchTerm, api, info, infoReady, infoIsFood, infoisNull]);
 
     return(
         <div>
