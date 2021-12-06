@@ -5,10 +5,9 @@ import Thumbnail from './Thumbnail';
 const Drink = ({data}) => {
     return (
         <article key={data.id}>
-            <h2>Results</h2>
             <Thumbnail imgSrc={data.strDrinkThumb} imgAlt={`Finished result of ${data.strDrink}`}/>
             <h3>{data.strDrink}</h3>
-            <p>Cuisine: {data.strArea} | Category: {data.strCategory} | Alcoholic: {data.strAlcoholic} | Glass: {data.strGlass}</p>
+            <p>Category: {data.strCategory} | Alcoholic: {data.strAlcoholic} | Glass: {data.strGlass}</p>
             <h4>Ingredients</h4>
             <ul>
                 <li>{data.strMeasure1} {data.strIngredient1}</li>
