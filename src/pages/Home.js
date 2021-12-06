@@ -10,7 +10,8 @@ function Home() {
     const [api, setapi] = useState('');
     const [info, setinfo]= useState('');
     const [infoReady, setinfoReady] = useState(false);
-    const[infoisFood, setinfoisFood] = useState(false);
+    const[infoIsFood, setinfoIsFood] = useState(false);
+    const [infoisNull, setinfoIsNull] = useState(false);
     const [warning, setWarning] = useState('');
 
     const findRecipe = (e) => {
@@ -43,19 +44,21 @@ function Home() {
                 const data = await (response.json());
                 if(api === "food") {
                     setinfo(data.meals);
-                    setinfoisFood(true);
+                    setinfoIsFood(true);
                 }
                 else {
                     setinfo(data.drinks);
-                    setinfoisFood(false);
+                    setinfoIsFood(false);
+                }
+                if(info === '') {
+                    setinfoIsNull(true);
                 }
                 setinfoReady(true);
             }
         }; 
         fetchAPI();
         seturl('');
-        setsearchTerm('');
-    }, [url, searchTerm, api, info, infoReady, infoisFood]);
+    }, [url, searchTerm, api, info, infoReady, infoIsFood]);
 
     return(
         <div>
@@ -63,21 +66,24 @@ function Home() {
                 {infoReady ? [
                     <h2>Recipes found for: {searchTerm}</h2>,
                     <Button content="New Search" clickEvent={newSearch}/>, 
-                    infoisFood ? 
-                    info.map((recipe, index) => (
-                        <Food data={recipe} key={index} />
-                    ))
+                    infoisNull ? 
+                        <p>We're sorry. We couldn't find any recipes matching {searchTerm}. Please try again.</p>
                     :
-                    info.map((recipe, index) => (
-                        <Drink data={recipe} key={index} />
-                    )), 
+                    infoIsFood ? 
+                        info.map((recipe, index) => (
+                            <Food data={recipe} key={index} />
+                        ))
+                        :
+                        info.map((recipe, index) => (
+                            <Drink data={recipe} key={index} />
+                        )), 
                     <Button content="New Search" clickEvent={newSearch}/> 
                 ]
-                : [
+                :   [
                     <h2>Search Free Recipes</h2>,
                     <Search findRecipe={findRecipe} />, 
                     <p>{warning}</p> 
-                  ]
+                    ]
                 }
             </main>
         </div>
