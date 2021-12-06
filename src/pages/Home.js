@@ -5,6 +5,8 @@ import Food from '../components/Food';
 import Search from '../components/Search'
 
 function Home() {
+
+    // State variables for displaying correct API information when available
     const [url, seturl] = useState('');
     const [searchTerm, setsearchTerm] = useState('');
     const [api, setapi] = useState('');
@@ -14,6 +16,7 @@ function Home() {
     const [infoIsNull, setinfoIsNull] = useState(false);
     const [warning, setWarning] = useState('');
 
+    // Function to handle form information when submitted to make sure nothing is left blank and update appropriate states
     const findRecipe = (e) => {
         e.preventDefault();
         if(e.target.recipeType.value.trim() !== '' && e.target.searchTerm.value.trim() !== '') {
@@ -32,6 +35,7 @@ function Home() {
         }
     };
 
+    // Function to return to search form when new search button is pressed
     const newSearch = () => {
         setinfo('');
         setinfoReady(false);
@@ -39,6 +43,7 @@ function Home() {
         setinfoIsNull(false);
     };
 
+    // When all appropriates states have been updated, api info will be fetched and viewport will display all gathered info
     useEffect(() => {
         async function fetchAPI() {
             if(url !== '') {
@@ -56,16 +61,17 @@ function Home() {
             }
         }; 
         fetchAPI();
-        console.log(info)
         if(info == null) {
             setinfoIsNull(true);
         }
         seturl('');
-    }, [url, searchTerm, api, info, infoReady, infoIsFood]);
+    }, [url, searchTerm, api, info]);
 
+    // Structure to display info on viewport
     return(
         <div>
             <main>
+                {/* If API data has been fetched, results page will display a header, and a new search button. If the information gathered from the API is null, apology will display. If the API info is not null and it is a food recipe, the Food component will map through it. If it is a drink recipe, the Drink component will map through it. If the API data has not been fetched, the search form will display on the screen.  */}
                 {infoReady ? <>
                     <h2>{api} recipes found for: {searchTerm}</h2>
                     <Button content="New Search" clickEvent={newSearch}/>
