@@ -11,22 +11,29 @@ function Home() {
     const [info, setinfo]= useState('');
     const [infoReady, setinfoReady] = useState(false);
     const[infoisFood, setinfoisFood] = useState(false);
+    const [warning, setWarning] = useState('');
 
     const findRecipe = (e) => {
         e.preventDefault();
-        if(e.target.recipeType.value.includes("meal")) {
-            setapi("food");
+        if(e.target.recipeType.value.trim() !== '' && e.target.searchTerm.value.trim() !== '') {
+            if(e.target.recipeType.value.includes("meal")) {
+                setapi("food");
+            }
+            else {
+                setapi("drink");
+            }
+            seturl(e.target.recipeType.value);
+            setsearchTerm(e.target.searchTerm.value);
+            e.target.reset();
         }
         else {
-            setapi("drink");
+            setWarning("Please be sure to make an entry for both options");
         }
-        seturl(e.target.recipeType.value);
-        setsearchTerm(e.target.searchTerm.value);
-        e.target.reset();
     };
 
     const newSearch = () => {
         setinfoReady(false);
+        setWarning('');
     };
 
     useEffect(() => {
@@ -64,11 +71,14 @@ function Home() {
                     info.map((recipe, index) => (
                         <Drink data={recipe} key={index} />
                     )), 
-                    <Button content="New Search" clickEvent={newSearch}/> ]
+                    <Button content="New Search" clickEvent={newSearch}/> 
+                ]
                 : [
                     <h2>Search Free Recipes</h2>,
-                    <Search findRecipe={findRecipe} /> 
-                  ]}
+                    <Search findRecipe={findRecipe} />, 
+                    <p>{warning}</p> 
+                  ]
+                }
             </main>
         </div>
     );
