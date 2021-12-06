@@ -11,7 +11,7 @@ function Home() {
     const [info, setinfo]= useState('');
     const [infoReady, setinfoReady] = useState(false);
     const [infoIsFood, setinfoIsFood] = useState(false);
-    const [infoisNull, setinfoIsNull] = useState(false);
+    const [infoIsNull, setinfoIsNull] = useState(false);
     const [warning, setWarning] = useState('');
 
     const findRecipe = (e) => {
@@ -33,6 +33,7 @@ function Home() {
     };
 
     const newSearch = () => {
+        setinfo('');
         setinfoReady(false);
         setWarning('');
         setinfoIsNull(false);
@@ -51,15 +52,16 @@ function Home() {
                     setinfo(data.drinks);
                     setinfoIsFood(false);
                 }
-                if(info === '') {
-                    setinfoIsNull(true);
-                }
                 setinfoReady(true);
             }
         }; 
         fetchAPI();
+        console.log(info)
+        if(info == null) {
+            setinfoIsNull(true);
+        }
         seturl('');
-    }, [url, searchTerm, api, info, infoReady, infoIsFood, infoisNull]);
+    }, [url, searchTerm, api, info, infoReady, infoIsFood]);
 
     return(
         <div>
@@ -67,7 +69,7 @@ function Home() {
                 {infoReady ? <>
                     <h2>{api} recipes found for: {searchTerm}</h2>
                     <Button content="New Search" clickEvent={newSearch}/>
-                    {infoisNull ? 
+                    {infoIsNull ? 
                         <p>We're sorry. We couldn't find any recipes matching {searchTerm}. Please try again.</p>
                     :
                     infoIsFood ? 
