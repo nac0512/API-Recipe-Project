@@ -1,3 +1,5 @@
+// Search form to get info needed to fetch API data
+
 import React from 'react';
 import Button from './Button';
 
