@@ -10,7 +10,7 @@ function Home() {
     const [api, setapi] = useState('');
     const [info, setinfo]= useState('');
     const [infoReady, setinfoReady] = useState(false);
-    const[infoIsFood, setinfoIsFood] = useState(false);
+    const [infoIsFood, setinfoIsFood] = useState(false);
     const [infoisNull, setinfoIsNull] = useState(false);
     const [warning, setWarning] = useState('');
 
@@ -28,7 +28,7 @@ function Home() {
             e.target.reset();
         }
         else {
-            setWarning("Please be sure to make an entry for both options");
+            setWarning("Please don't leave any fields blank");
         }
     };
 
@@ -63,10 +63,10 @@ function Home() {
     return(
         <div>
             <main>
-                {infoReady ? [
-                    <h2>Recipes found for: {searchTerm}</h2>,
-                    <Button content="New Search" clickEvent={newSearch}/>, 
-                    infoisNull ? 
+                {infoReady ? <>
+                    <h2>{api} recipes found for: {searchTerm}</h2>
+                    <Button content="New Search" clickEvent={newSearch}/>
+                    {infoisNull ? 
                         <p>We're sorry. We couldn't find any recipes matching {searchTerm}. Please try again.</p>
                     :
                     infoIsFood ? 
@@ -76,14 +76,14 @@ function Home() {
                         :
                         info.map((recipe, index) => (
                             <Drink data={recipe} key={index} />
-                        )), 
+                        ))}
                     <Button content="New Search" clickEvent={newSearch}/> 
-                ]
-                :   [
-                    <h2>Search Free Recipes</h2>,
-                    <Search findRecipe={findRecipe} />, 
-                    <p>{warning}</p> 
-                    ]
+                </>
+                :   <>
+                        <h2>Search Free Recipes</h2>
+                        <Search findRecipe={findRecipe} />
+                        <p>{warning}</p> 
+                    </>
                 }
             </main>
         </div>
