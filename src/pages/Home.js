@@ -5,6 +5,7 @@ import Food from '../components/Food';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Search from '../components/Search'
+import { BiError } from 'react-icons/bi'
 
 function Home() {
 
@@ -33,7 +34,7 @@ function Home() {
             e.target.reset();
         }
         else {
-            setWarning("Please don't leave any fields blank");
+            setWarning([<BiError style={styles.icon}/>, " Please don't leave any fields blank"]);
         }
     };
 
@@ -71,12 +72,12 @@ function Home() {
 
     // Structure to display info on viewport
     return(
-        <div>
+        <div style={styles.display}>
             <Header />
-            <main>
+            <main style={styles.main}>
                 {/* If API data has been fetched, results page will display a header, and a new search button. If the information gathered from the API is null, apology will display. If the API info is not null and it is a food recipe, the Food component will map through it. If it is a drink recipe, the Drink component will map through it. If the API data has not been fetched, the search form will display on the screen.  */}
                 {infoReady ? <>
-                    <h2>{api} recipes found for: {searchTerm}</h2>
+                    <h2 style={styles.h2}>{api} recipes found for: {searchTerm}</h2>
                     <Button content="New Search" clickEvent={newSearch}/>
                     {infoIsNull ? 
                         <p>We're sorry. We couldn't find any recipes matching {searchTerm}. Please try again.</p>
@@ -92,9 +93,10 @@ function Home() {
                     <Button content="New Search" clickEvent={newSearch}/> 
                 </>
                 :   <>
-                        <h2>Search Free Recipes</h2>
+                        <h2 style={styles.h2}>Search Free Recipes</h2>
+                        <p style={styles.instructions}>Welcome to Anyone Can Cook, the online database for finding delicious recipes for any occasion! Looking for something specific? Enter a search word below and find exactly what you're looking for. Feeling a little adventourous? Try the random meal or drink recipe generators and try something new.</p>
                         <Search findRecipe={findRecipe} />
-                        <p>{warning}</p> 
+                        <p style={styles.warning}>{warning}</p> 
                     </>
                 }
             </main>
@@ -104,3 +106,32 @@ function Home() {
 }
 
 export default Home;
+
+const styles = {
+    display: {
+        minHeight: '100vh',
+        display:'flex',
+        flexDirection:'column',
+    },
+    main: {
+        flexGrow:'1',
+        textAlign:'center',
+        color:'rgb(21, 21, 21)'
+    },
+    h2: {
+        borderBottom:'dashed 2px rgba(81, 152, 114, .5)',
+        width:'22rem',
+        margin:'2rem auto'
+    },
+    instructions: {
+        width:'65rem',
+        margin:'0 auto 1.5rem auto'
+    },
+    warning:{
+        color:'rgb(186, 63, 29)'
+    },
+    icon: {
+        fontSize:'1.8rem',
+        verticalAlign:'text-top'
+    }
+}

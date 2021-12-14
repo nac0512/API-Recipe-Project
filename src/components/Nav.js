@@ -23,5 +23,4 @@ const styles= {
     active: {
         color:'rgb(253, 255, 252)'
     }
-
 }
