@@ -4,11 +4,24 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
     return (
         <nav>
-            <Link to='/'>Home</Link>
-            <Link to='randomMeal'>Random Meal Recipe</Link>
-            <Link to='randomDrink'>Random Drink Recipe</Link>
+            <Link to='/' style={styles.link}>Home</Link> 
+            <Link to='randomMeal' style={styles.link}>Random Meal Recipe</Link>
+            <Link to='randomDrink' style={styles.link}>Random Drink Recipe</Link>
         </nav>
     );
 }
 
 export default Nav;
+
+const styles= {
+    link: {
+        paddingLeft:'1.5rem',
+        color:'rgb(161,103,74)',
+        fontSize:'1.1rem'
+    },
+
+    active: {
+        color:'rgb(253, 255, 252)'
+    }
+
+}
