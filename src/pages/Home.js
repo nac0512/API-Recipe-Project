@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import Drink from '../components/Drink';
 import Food from '../components/Food';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import Search from '../components/Search'
 
 function Home() {
@@ -70,6 +72,7 @@ function Home() {
     // Structure to display info on viewport
     return(
         <div>
+            <Header />
             <main>
                 {/* If API data has been fetched, results page will display a header, and a new search button. If the information gathered from the API is null, apology will display. If the API info is not null and it is a food recipe, the Food component will map through it. If it is a drink recipe, the Drink component will map through it. If the API data has not been fetched, the search form will display on the screen.  */}
                 {infoReady ? <>
@@ -95,6 +98,7 @@ function Home() {
                     </>
                 }
             </main>
+            <Footer />
         </div>
     );
 }
