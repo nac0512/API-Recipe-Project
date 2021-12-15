@@ -137,7 +137,7 @@ const styles = {
         verticalAlign:'text-top'
     },
     button: {
-        marginTop:'1rem',
+        marginBottom:'1.5rem',
         width:'8rem',
         height:'2.5rem',
         borderRadius:'3rem',
