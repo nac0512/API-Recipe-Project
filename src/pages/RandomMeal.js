@@ -20,7 +20,6 @@ function RandomMeal() {
             setinfoReady(true);
         }; 
         fetchAPI();
-        console.log(info, infoReady);
     }, []);
 
     // Once info is ready, recipe is shown to the user
