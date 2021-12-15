@@ -46,6 +46,7 @@ const Food = ({data}) => {
 }
 
 export default Food;
+
 const styles = {
     article:{
         display:'grid',
@@ -119,6 +120,6 @@ const styles = {
     linkIcon: {
         marginLeft:'.1rem',
         verticalAlign:'text-top',
-        fontSize:'1.5rem',
+        fontSize:'1.5rem'
     }
 }
