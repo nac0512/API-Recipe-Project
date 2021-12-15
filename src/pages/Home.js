@@ -24,7 +24,7 @@ function Home() {
         e.preventDefault();
         if(e.target.recipeType.value.trim() !== '' && e.target.searchTerm.value.trim() !== '') {
             if(e.target.recipeType.value.includes("meal")) {
-                setapi("food");
+                setapi("meal");
             }
             else {
                 setapi("drink");
@@ -52,7 +52,7 @@ function Home() {
             if(url !== '') {
                 const response = await fetch(`${url}api/json/v1/1/search.php?s=${searchTerm}`);
                 const data = await (response.json());
-                if(api === "food") {
+                if(api === "meal") {
                     setinfo(data.meals);
                     setinfoIsFood(true);
                 }
@@ -77,7 +77,7 @@ function Home() {
             <main style={styles.main}>
                 {/* If API data has been fetched, results page will display a header, and a new search button. If the information gathered from the API is null, apology will display. If the API info is not null and it is a food recipe, the Food component will map through it. If it is a drink recipe, the Drink component will map through it. If the API data has not been fetched, the search form will display on the screen.  */}
                 {infoReady ? <>
-                    <h2 style={styles.h2}>{api} recipes found for: {searchTerm}</h2>
+                    <h2 style={styles.h2}>All recipes found for: {searchTerm}</h2>
                     <Button content="New Search" clickEvent={newSearch}/>
                     {infoIsNull ? 
                         <p>We're sorry. We couldn't find any recipes matching {searchTerm}. Please try again.</p>
@@ -125,7 +125,7 @@ const styles = {
     },
     instructions: {
         width:'65rem',
-        margin:'0 auto 1.5rem auto'
+        margin:'0 auto 3rem auto'
     },
     warning:{
         color:'rgb(186, 63, 29)'

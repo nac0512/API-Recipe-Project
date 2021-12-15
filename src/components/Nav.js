@@ -18,9 +18,5 @@ const styles= {
         paddingLeft:'1.5rem',
         color:'rgb(161,103,74)',
         fontSize:'1.1rem'
-    },
-
-    active: {
-        color:'rgb(253, 255, 252)'
     }
 }
