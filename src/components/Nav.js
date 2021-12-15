@@ -7,8 +7,8 @@ const Nav = () => {
     return (
         <nav>
             <Link to='/' style={styles.link}>Home</Link> 
-            <Link to='randomMeal' style={styles.link}>Random Meal Recipe</Link>
-            <Link to='randomDrink' style={styles.link}>Random Drink Recipe</Link>
+            <Link to='/randomMeal' style={styles.link}>Random Meal Recipe</Link>
+            <Link to='/randomDrink' style={styles.link}>Random Drink Recipe</Link>
         </nav>
     );
 }
