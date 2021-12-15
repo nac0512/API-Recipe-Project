@@ -16,7 +16,6 @@ function RandomMeal() {
             setinfoReady(true);
         }; 
         fetchAPI();
-        console.log(info, infoReady);
     }, []);
 
     return(
