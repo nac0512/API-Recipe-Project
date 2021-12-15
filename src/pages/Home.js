@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Search from '../components/Search'
 import { BiError } from 'react-icons/bi'
+import { ImSad } from 'react-icons/im'
 
 function Home() {
 
@@ -77,10 +78,10 @@ function Home() {
             <main style={styles.main}>
                 {/* If API data has been fetched, results page will display a header, and a new search button. If the information gathered from the API is null, apology will display. If the API info is not null and it is a food recipe, the Food component will map through it. If it is a drink recipe, the Drink component will map through it. If the API data has not been fetched, the search form will display on the screen.  */}
                 {infoReady ? <>
-                    <h2 style={styles.h2}>All recipes found for: {searchTerm}</h2>
-                    <Button content="New Search" clickEvent={newSearch}/>
+                    <h2 style={styles.h2}>all recipes found for: {searchTerm}</h2>
+                    <Button content="New Search" clickEvent={newSearch} style={styles.button}/>
                     {infoIsNull ? 
-                        <p>We're sorry. We couldn't find any recipes matching {searchTerm}. Please try again.</p>
+                        <p><ImSad style={styles.icon}/> We're sorry. We couldn't find any recipes matching {searchTerm}. Please try again.</p>
                     :
                     infoIsFood ? 
                         info.map((recipe, index) => (
@@ -90,10 +91,10 @@ function Home() {
                         info.map((recipe, index) => (
                             <Drink data={recipe} key={index} />
                         ))}
-                    <Button content="New Search" clickEvent={newSearch}/> 
+                    <Button content="New Search" clickEvent={newSearch} style={styles.button}/> 
                 </>
                 :   <>
-                        <h2 style={styles.h2}>Search Free Recipes</h2>
+                        <h2 style={styles.h2}>search free recipes</h2>
                         <p style={styles.instructions}>Welcome to Anyone Can Cook, the online database for finding delicious recipes for any occasion! Looking for something specific? Enter a search word below and find exactly what you're looking for. Feeling a little adventourous? Try the random meal or drink recipe generators and try something new.</p>
                         <Search findRecipe={findRecipe} />
                         <p style={styles.warning}>{warning}</p> 
@@ -120,8 +121,9 @@ const styles = {
     },
     h2: {
         borderBottom:'dashed 2px rgba(81, 152, 114, .5)',
-        width:'22rem',
-        margin:'2rem auto'
+        width:'max-content',
+        margin:'2rem auto',
+        textTransform:'capitalize'
     },
     instructions: {
         width:'65rem',
@@ -133,5 +135,15 @@ const styles = {
     icon: {
         fontSize:'1.8rem',
         verticalAlign:'text-top'
+    },
+    button: {
+        marginTop:'1rem',
+        width:'8rem',
+        height:'2.5rem',
+        borderRadius:'3rem',
+        borderColor:'rgb(161, 103, 74)',
+        color:'rgb(161, 103, 74)',
+        backgroundColor:'rgb(253, 255, 252)',
+        fontSize:'.9rem'
     }
 }
