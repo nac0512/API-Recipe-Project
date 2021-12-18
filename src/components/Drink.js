@@ -1,4 +1,4 @@
-// Drink component that displays API info once mapped
+// Drink component that displays all info for selected item
 
 import React from 'react';
 import Thumbnail from './Thumbnail';
@@ -6,28 +6,24 @@ import { GiFireBowl } from 'react-icons/gi';
 import { BsListTask } from 'react-icons/bs';
 
 const Drink = ({data}) => {
+    const listItems = [];
+
+    for(let i = 1; i <= 15; i++) {
+        if (data['strMeasure' + i] !== null && data['strMeasure' + i] !== ''  && data['strIngredient' + i] !== null && data['strIngredient' + i] !== '') {
+            listItems.push(`${data['strMeasure' + i]} ${data['strIngredient' + i]}`);
+        }
+    }
+
     return (
-        <article key={data.id} style={styles.article}>
-            <Thumbnail imgSrc={data.strDrinkThumb} imgAlt={`Finished result of ${data.strDrink}`} style={styles.img}/>
+        <article key={data.idDrink} style={styles.article}>
+            <Thumbnail imgSrc={data.strDrinkThumb} imgAlt={`Finished result of ${data.strDrink}`} style={styles.img} id={data.idDrink}/>
             <h3 style={styles.h3}>{data.strDrink}</h3>
             <p style={styles.category}><span style={styles.span}>Category:</span> {data.strCategory} | <span style={styles.span}>Alcoholic:</span> {data.strAlcoholic} | <span style={styles.span}>Glass:</span> {data.strGlass}</p>
             <h4 style={styles.ingh4}><GiFireBowl style={styles.icon}/>Ingredients</h4>
             <ul style={styles.ul}>
-                <li>{data.strMeasure1} {data.strIngredient1}</li>
-                <li>{data.strMeasure2} {data.strIngredient2}</li>
-                <li>{data.strMeasure3} {data.strIngredient3}</li>
-                <li>{data.strMeasure4} {data.strIngredient4}</li>
-                <li>{data.strMeasure5} {data.strIngredient5}</li>
-                <li>{data.strMeasure6} {data.strIngredient6}</li>
-                <li>{data.strMeasure7} {data.strIngredient7}</li>
-                <li>{data.strMeasure8} {data.strIngredient8}</li>
-                <li>{data.strMeasure9} {data.strIngredient9}</li>
-                <li>{data.strMeasure10} {data.strIngredient10}</li>
-                <li>{data.strMeasure11} {data.strIngredient11}</li>
-                <li>{data.strMeasure12} {data.strIngredient12}</li>
-                <li>{data.strMeasure13} {data.strIngredient13}</li>
-                <li>{data.strMeasure14} {data.strIngredient14}</li>
-                <li>{data.strMeasure15} {data.strIngredient15}</li>
+            {listItems.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
             </ul>
             <h4 style={styles.insth4}><BsListTask style={styles.icon}/>Instructions</h4>
             <p style={styles.instructions}>{data.strInstructions}</p>
@@ -75,7 +71,6 @@ const styles = {
         gridArea:'ingredientsh4'
     },
     ul: {
-        listStyle:'none',
         margin:'0 0 0 9rem',
         display:'inline-block',
         textAlign:'left',
