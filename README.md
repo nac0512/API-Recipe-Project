@@ -4,9 +4,11 @@ This repository features a React-based application that allows the user access t
 
 * The first view presented to the user will be two radio options for meal or drink, and a search bar. 
 
-* The user will enter a search word, i.e, pasta, chocolate, cocktail, and hit the search button. 
+* The user will select a recipe type, enter a search word, i.e, pasta, chocolate, cocktail, and hit the search button. 
 
-* The search terms will be sent to an API and if there are results, they will be presented to the user. 
+* The search terms will be sent to an API and if there are results, they will be presented to the user in the form of a thumbnail and title list. 
+
+* To see more information about a specific recipe, the user must click on the desired thumbnail. 
 
 * If there are no results, the user will be notified to try again. 
 
