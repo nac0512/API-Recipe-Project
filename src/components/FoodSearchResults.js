@@ -8,7 +8,7 @@ const FoodSearchResults = ({data, choiceSelected}) => {
         <article key={data.idMeal} style={styles.display}>
             <a href={data.strImageSource} onClick={choiceSelected}><Thumbnail imgSrc={data.strMealThumb} imgAlt={`Finished result of ${data.strMeal}`} style={styles.img} id={data.idMeal}/></a>
             <h3 style={styles.h3}>{data.strMeal}</h3>
-            <p style={styles.category}><span style={styles.span}>Cuisine:</span> {data.strArea} | <span style={styles.span}>Category:</span> {data.strCategory} | <span style={styles.span}>Tags:</span> {data.strTags}</p>
+            <p><span style={styles.span}>Cuisine:</span> {data.strArea} | <span style={styles.span}>Category:</span> {data.strCategory} | <span style={styles.span}>Tags:</span> {data.strTags}</p>
         </article>
 
     );
@@ -20,24 +20,22 @@ const styles = {
     display: {
         width:'65rem',
         margin:'0 auto 1.5rem auto',
+        paddingBottom:'1.5rem',
         color:'rgb(21, 21, 21)',
         backgroundColor:'rgb(255, 253, 252)',
-        borderBottom:'dashed 2px rgba(81,152,114,.5)'
+        borderBottom:'dashed 2px rgba(81,152,114,.5)',
+        overflow:'auto'
     },
     img: {
-        width:'25rem',
-        height:'20rem',
-        margin:'0 auto',
+        float:'left',
+        width:'15rem',
         border:'double 7px rgb(253, 184, 51)',
         borderRadius:'.8rem',
-        gridArea:'img',
         cursor:'pointer',
+        textWrap:'wrap'
     },
     h3: {
-        gridArea:'h3'
-    },
-    category: {
-        gridArea:'category'
+        marginTop:'5rem'
     },
     span: {
         color:'rgba(81,152,114,.5)'
