@@ -10,14 +10,14 @@ const Search = (props) => {
         <form onSubmit={props.findRecipe} style={styles.form}>
             <div style={styles.div}>
                 <label htmlFor="recipeType" style={styles.label}>Select the recipe category:</label>
-                <input type="radio" id="meal" name="recipeType" value="https://www.themealdb.com/"></input>
+                <input type="radio" id="meal" name="recipeType" value="https://www.themealdb.com/" defaultChecked></input>
                 <label htmlFor="meal" style={styles.option}><GiMeal style={styles.icon}/> Meal</label>
                 <input type="radio" id="drink" name="recipeType" value="https://www.thecocktaildb.com/"></input>
                 <label htmlFor="drink"><BiDrink style={styles.icon}/> Drink</label>
             </div>
             <div style={styles.div}>
                 <label htmlFor="searchTerm" style={styles.label}>What are you looking for? </label>
-                <input type="text" name="searchTerm" id="searchTerm" placeholder="Search Recipes... " style={styles.input}></input>
+                <input type="text" name="searchTerm" id="searchTerm" placeholder="Search Recipes... " style={styles.input} autoFocus='true'></input>
             </div>
             <Button content="Find Recipes" style={styles.button}/>
         </form>

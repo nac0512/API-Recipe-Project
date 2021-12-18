@@ -96,7 +96,7 @@ function Home() {
                 :   <>
                         <h2 style={styles.h2}>search free recipes</h2>
                         <p style={styles.instructions}>Welcome to Anyone Can Cook, the online database for finding delicious recipes for any occasion! Looking for something specific? Enter a search word below and find exactly what you're looking for. Feeling a little adventourous? Try the random meal or drink recipe generators and try something new.</p>
-                        <Search findRecipe={findRecipe} />
+                        <Search findRecipe={findRecipe}/>
                         <p style={styles.warning}>{warning}</p> 
                     </>
                 }
