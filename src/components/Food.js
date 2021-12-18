@@ -28,7 +28,7 @@ const Food = ({data}) => {
                 ))}
             </ul>
             <h4 style={styles.insth4}><BsListTask style={styles.icon}/>Instructions</h4>
-            <p style={styles.instructions}>{data.strInstructions.replace('\r\n', '\\r\\n')}</p>
+            <p style={styles.instructions}>{data.strInstructions.replaceAll('\r\n', '\r\n\r\n')}</p>
             <h4 style={styles.vidh4}><BsYoutube style={styles.icon}/>Video</h4>
             <p style={styles.vid}><a href={data.strYoutube} target="_blank" rel="noreferrer" style=
             {styles.a}>Join us in the kitchen! <BsChevronDoubleRight style={styles.linkIcon}/></a></p>
@@ -93,7 +93,8 @@ const styles = {
         gridArea:'instructionsh4'
     },
     instructions: {
-        gridArea:'instructions'
+        gridArea:'instructions',
+        whiteSpace:'pre-line'
     },
     vidh4: {
         gridArea:'videoh4',
