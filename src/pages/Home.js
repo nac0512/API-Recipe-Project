@@ -190,8 +190,8 @@ const styles = {
         verticalAlign:'text-top'
     },
     button: {
-        marginBottom:'1.5rem',
-        width:'8rem',
+        margin:'0 0 1.5rem 1rem',
+        width:'max-content',
         height:'2.5rem',
         borderRadius:'3rem',
         borderColor:'rgb(161, 103, 74)',
