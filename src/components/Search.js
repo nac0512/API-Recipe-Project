@@ -17,7 +17,7 @@ const Search = (props) => {
             </div>
             <div style={styles.div}>
                 <label htmlFor="searchTerm" style={styles.label}>What are you looking for? </label>
-                <input type="text" name="searchTerm" id="searchTerm" placeholder="Search Recipes... " style={styles.input} autoFocus='true'></input>
+                <input type="text" name="searchTerm" id="searchTerm" placeholder="Search Recipes... " style={styles.input} autoFocus={true}></input>
             </div>
             <Button content="Find Recipes" style={styles.button}/>
         </form>
