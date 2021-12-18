@@ -1,3 +1,5 @@
+// Navigation component to navigate to seperate pages
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 

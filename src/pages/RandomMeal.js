@@ -1,12 +1,16 @@
+// Component created to generate random meal recipe 
+
 import React, { useEffect, useState } from 'react';
 import Food from '../components/Food';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 function RandomMeal() {
+    // States to be used and updated 
     const [info, setinfo]= useState('');
     const [infoReady, setinfoReady] = useState(false);
 
+    // Api fetched and states updated 
     useEffect(() => {
         async function fetchAPI() {
             const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
@@ -17,6 +21,7 @@ function RandomMeal() {
         fetchAPI();
     }, []);
 
+    // Once info is ready, recipe is shown to the user
     return(
         <div style={styles.display}>
             <Header />

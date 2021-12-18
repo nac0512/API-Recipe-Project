@@ -1,3 +1,5 @@
+// Footer component to display logo, nav, and website links
+
 import React from 'react';
 import logo from '../images/logo.png';
 import Nav from './Nav';

@@ -1,3 +1,5 @@
+// Header component to display logo and nav
+
 import React from 'react';
 import logo from '../images/logo.png'
 import Nav from './Nav';
