@@ -1,4 +1,4 @@
-// Drink component that displays API info once mapped
+// Drink component that displays all info for selected item
 
 import React from 'react';
 import Thumbnail from './Thumbnail';
@@ -15,8 +15,8 @@ const Drink = ({data}) => {
     }
 
     return (
-        <article key={data.id} style={styles.article}>
-            <Thumbnail imgSrc={data.strDrinkThumb} imgAlt={`Finished result of ${data.strDrink}`} style={styles.img}/>
+        <article key={data.idDrink} style={styles.article}>
+            <Thumbnail imgSrc={data.strDrinkThumb} imgAlt={`Finished result of ${data.strDrink}`} style={styles.img} id={data.idDrink}/>
             <h3 style={styles.h3}>{data.strDrink}</h3>
             <p style={styles.category}><span style={styles.span}>Category:</span> {data.strCategory} | <span style={styles.span}>Alcoholic:</span> {data.strAlcoholic} | <span style={styles.span}>Glass:</span> {data.strGlass}</p>
             <h4 style={styles.ingh4}><GiFireBowl style={styles.icon}/>Ingredients</h4>

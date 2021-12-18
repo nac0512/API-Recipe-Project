@@ -1,4 +1,4 @@
-// Food component that displays API info once mapped
+// Food component that displays all info for selected item
 
 import React from 'react';
 import Thumbnail from './Thumbnail';
