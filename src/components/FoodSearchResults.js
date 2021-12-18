@@ -31,8 +31,8 @@ const styles = {
         width:'15rem',
         border:'double 7px rgb(253, 184, 51)',
         borderRadius:'.8rem',
-        cursor:'pointer',
-        textWrap:'wrap'
+        zIndex:'2',
+        cursor:'pointer'
     },
     h3: {
         marginTop:'5rem'
