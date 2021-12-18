@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/free-recipes/static/css/main.368830f7.chunk.css",
+    "main.js": "/free-recipes/static/js/main.7a31570a.chunk.js",
+    "main.js.map": "/free-recipes/static/js/main.7a31570a.chunk.js.map",
+    "runtime-main.js": "/free-recipes/static/js/runtime-main.88068dc2.js",
+    "runtime-main.js.map": "/free-recipes/static/js/runtime-main.88068dc2.js.map",
+    "static/js/2.23b9f04e.chunk.js": "/free-recipes/static/js/2.23b9f04e.chunk.js",
+    "static/js/2.23b9f04e.chunk.js.map": "/free-recipes/static/js/2.23b9f04e.chunk.js.map",
+    "static/js/3.56368374.chunk.js": "/free-recipes/static/js/3.56368374.chunk.js",
+    "static/js/3.56368374.chunk.js.map": "/free-recipes/static/js/3.56368374.chunk.js.map",
+    "index.html": "/free-recipes/index.html",
+    "static/css/main.368830f7.chunk.css.map": "/free-recipes/static/css/main.368830f7.chunk.css.map",
+    "static/js/2.23b9f04e.chunk.js.LICENSE.txt": "/free-recipes/static/js/2.23b9f04e.chunk.js.LICENSE.txt",
+    "static/media/logo.a1e7277a.png": "/free-recipes/static/media/logo.a1e7277a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.88068dc2.js",
+    "static/js/2.23b9f04e.chunk.js",
+    "static/css/main.368830f7.chunk.css",
+    "static/js/main.7a31570a.chunk.js"
+  ]
+}
