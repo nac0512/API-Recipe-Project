@@ -99,7 +99,7 @@ function Home() {
         if(info == null) {
             setinfoIsNull(true);
         }
-    }, [url, searchTerm, api, info, id, choiceInfo]);
+    }, [url, searchTerm, api, info, id]);
 
     // Structure to display info on viewport
     return(
@@ -165,7 +165,7 @@ const styles = {
     display: {
         minHeight: '100vh',
         display:'flex',
-        flexDirection:'column',
+        flexDirection:'column'
     },
     main: {
         flexGrow:'1',
