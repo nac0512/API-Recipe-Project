@@ -49,6 +49,8 @@ function Home() {
     // Function to return to search form when new search button is pressed
     const newSearch = () => {
         setinfo('');
+        setchoiceClicked(false);
+        setchoiceInfo('');
         setinfoReady(false);
         setWarning('');
         setinfoIsNull(false);
