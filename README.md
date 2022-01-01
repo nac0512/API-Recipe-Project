@@ -12,6 +12,8 @@ This repository features a React-based application that allows the user access t
 
 * If there are no results, the user will be notified to try again. 
 
+To View The Free Recipes Project live, [Click Here](https://nac0512.github.io/API-Recipe-Project/). Right click if you wish to open in a new tab.
+
 ## Packages and APIs
 
 If you plan to download and use this repisorty, **git clone via https** will work best
