@@ -1,6 +1,6 @@
-# Free Recipes
+# Anyone Can Cook Free Recipes API Project
 
-This repository features a React-based application that allows the user access to free meal and drink recipes. 
+This repository features a React-based application that allows the user access to free meal and drink recipes. This project is for **demonstration purposes only**.
 
 * The first view presented to the user will be two radio options for meal or drink, and a search bar. 
 
